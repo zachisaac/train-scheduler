@@ -9,8 +9,8 @@ var config = {
     projectId: "train-scheduler-ba62f",
     storageBucket: "train-scheduler-ba62f.appspot.com",
     messagingSenderId: "472085006636"
-};
-firebase.initializeApp(config);
+  };
+  firebase.initializeApp(config);
 //Create a variable to reference the database
 var database = firebase.database();
 
@@ -24,7 +24,7 @@ var frequency = "";
 $("#formID").on("click", function (event) {
     //Don't refresh the page!
     event.preventDefault();
-    
+
     //Logic for storing and recieving new train times.
     name = $("#trainName").val().trim();
     destination = $("#trainDestination").val().trim();
@@ -47,7 +47,7 @@ $("#formID").on("click", function (event) {
 });
 
 // Firebase watcher + initial loader HINT: .on("value")
-database.ref().on("value", function(snapshot) {
+database.ref().on("value", function (snapshot) {
 
     // Log everything that's coming out of snapshot
     console.log(snapshot.val());
@@ -63,13 +63,13 @@ database.ref().on("value", function(snapshot) {
     $("#frequency").text(snapshot.val().frequency);
 
     // Handle the errors
-  }, function(errorObject) {
+}, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
-  });
+});
 
 
-  //STOP
-  //Other Stuff...
+//STOP
+//Other Stuff...
 database.ref().orderByChild("dateAdded").on("child_added", function (childSnapshot) {
 
     var updateButton = $("<button>").html("<span class='glyphicon glyphicon-edit'></span>").addClass("updateButton").attr("data-index", index).attr("data-key", childSnapshot.key);
@@ -85,7 +85,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function (childSnapsh
     var diffTime = moment().diff(moment(firstTrain), "minutes");
     var tRemainder = diffTime % tFrequency;
     var minutesRemaining = tFrequency - tRemainder;
-    
+
 
     //New Rows
     var newRow = $("<tr>");

@@ -85,22 +85,9 @@ database.ref().orderByChild("dateAdded").on("child_added", function (childSnapsh
     var diffTime = moment().diff(moment(firstTrain), "minutes");
     var tRemainder = diffTime % tFrequency;
     var minutesRemaining = tFrequency - tRemainder;
-    //var nextTRain = moment().add(minutesRemaining, "minutes").format("hh:mm A");
-    //var beforeCalc = moment(firstTrain).diff(currentTimeCalc, "minutes");
-    //var beforeMinutes = Math.ceil(moment.duration(beforeCalc).asMinutes());
+    
 
-    /*if ((currentTimeCalc - firstTrain) < 0) {
-        nextTrain = childSnapshot.val().firstTime;
-        console.log("Before First Train");
-        minutesRemaining = beforeMinutes;
-    }
-    else {
-        nextTrain = moment().add(minutesRemaining, "minutes").format("hh:mm A");
-        minutesRemaining = tFrequency - tRemainder;
-        console.log("Working");
-    }*/
-
-
+    //New Rows
     var newRow = $("<tr>");
     newRow.addClass("row-" + index);
     var cell1 = $("<td>").append(updateButton);

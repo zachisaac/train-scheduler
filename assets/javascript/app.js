@@ -43,7 +43,7 @@ $("#formID").on("click", function (event) {
     $("#firstTrainTime").val("");
     $("#frequency").val("");
 
-    return false;
+    
 });
 
 // Firebase watcher + initial loader HINT: .on("value")
